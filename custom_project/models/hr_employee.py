@@ -41,7 +41,7 @@ class User(models.Model):
         """
         assert start.tzinfo and end.tzinfo
         user_calendar_validity_intervals = {}
-        calendar_users = defaultdict(lambda: self.env['res.users'])
+        calendar_users = defaultdict(lambda: self.env['hr.employee'])
         user_work_intervals = defaultdict(Intervals)
         calendar_work_intervals = dict()
         user_resources = {user: user._get_project_task_resource() for user in self}
@@ -52,7 +52,7 @@ class User(models.Model):
             for calendar in user_calendar_validity_intervals[user.id]:
                 calendar_users[calendar] |= user
         for calendar in (calendars or []):
-            calendar_users[calendar] |= self.env['res.users']
+            calendar_users[calendar] |= self.env['hr.employee']
         for calendar, users in calendar_users.items():
             # For each calendar used by the users, retrieve the work intervals for every users using it
             work_intervals_batch = calendar._work_intervals_batch(start, end, resources=users._get_project_task_resource())
