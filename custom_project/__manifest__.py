@@ -5,6 +5,6 @@
     'name': 'Custom Project Module',
     'version': '1.0',
     'description': 'Custom project module to modify the user_ids field from res.users to hr.employee',
-    'depends': ['base', 'project', 'employees'],
+    'depends': ['base', 'project', 'hr'],
     'installable': True, 
 }
