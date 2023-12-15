@@ -6,11 +6,4 @@ from odoo import fields, models, _
 class CustomProject(models.Model):
     _inherit = 'project.project'
 
-    @api.onchange('date_start', 'date')
-    def _onchange_planned_date(self):
-        print('Change planned date')
-        # if not self.date and self.date_start:
-        #     self.date_start = False
-        # elif not self.date_start and self.date:
-        #     self.date = False
-
+    date_start = fields.Date(string='Start Date', default=fields.Date.today)
