@@ -5,6 +5,6 @@
     'name': 'Custom Project Module',
     'version': '1.0',
     'description': 'Custom _onchange_planned_date',
-    'depends': ['base_setup', 'project'],
+    'depends': ['base', 'project'],
     'installable': True, 
 }
